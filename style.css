@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.meal-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-container,
+#favourite-meals-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.meal_items {
+    margin: 10px;
+}
+
+.favourite-btn {
+    display: block;
+    background-color: #00B4CC;
+    border: white;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.search_div {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 500px;
+    height: 40px;
+}
+
+.searchTerm {
+    padding: 5px;
+    width: 80%;
+}
+
+.fa-search {
+    margin-left: -30px;
+}
+
+.fa-heart {
+    color: white;
+}
+
+.item-name {
+    font-size: medium;
+}
+
+#fav-btn,
+.back-btn,
+.remove-favourites {
+    padding: 10px;
+    background-color: #00B4CC;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 4px;
+}
