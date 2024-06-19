@@ -56,17 +56,14 @@ body {
     margin-left: -30px;
 }
 
-.fa-heart {
-    color: white;
-}
-
 .item-name {
     font-size: medium;
 }
 
 #fav-btn,
 .back-btn,
-.remove-favourites {
+.remove-favourites,
+.favourite-btn {
     padding: 10px;
     background-color: #00B4CC;
     color: #fff;
