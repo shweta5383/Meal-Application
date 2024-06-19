@@ -1,7 +1,8 @@
 const favouriteMealsEle = document.getElementById('favourite-meals-list');
 let favouriteMeals = JSON.parse(localStorage.getItem('favouriteMeals')) || [];
 
-function loadFavouriteMeals() {
+//Display Favourites Meals
+function loadFavouriteMealsList() {
     favouriteMealsEle.innerHTML = '';
     if (favouriteMeals.length === 0) {
         favouriteMealsEle.innerHTML = '<p>No favourite meals added</p>';
@@ -12,18 +13,18 @@ function loadFavouriteMeals() {
                 .then(data => {
                     console.log(data);
                     const meal = data.meals[0];
-                    const mealElement = document.createElement('div');
-                    mealElement.classList = 'meal_items'
-                    mealElement.innerHTML = `
+                    const mealEle = document.createElement('div');
+                    mealEle.classList = 'meal_items'
+                    mealEle.innerHTML = `
         <h2 class="item-name">${meal.strMeal}</h2>
         <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="200" height="200">
         <button style="display:block;" class="remove-favourites" data-id="${meal.idMeal}">Remove</button>
     `;
-                    mealElement.addEventListener('click', () => {
+                    mealEle.addEventListener('click', () => {
                         window.location.href = `meal-detail.html?id=${meal.idMeal}`;
                     });
 
-                    favouriteMealsEle.appendChild(mealElement);
+                    favouriteMealsEle.appendChild(mealEle);
 
                     const removeBtn = document.querySelectorAll('.remove-favourites');
                     removeBtn.forEach(btn => {
@@ -33,8 +34,7 @@ function loadFavouriteMeals() {
                             favouriteMeals = favouriteMeals.filter(id => id !== mealId);
                             localStorage.setItem('favouriteMeals', JSON.stringify(favouriteMeals));
                             alert('menu removed from favourites')
-                            console.log(favouriteMeals);
-                            loadFavouriteMeals();
+                            loadFavouriteMealsList();
                         });
                     });
                 })
@@ -43,12 +43,5 @@ function loadFavouriteMeals() {
     }
 }
 
-
-// function removeFromFavourites(mealId) {
-//     favouriteMeals = favouriteMeals.filter(id => id !== mealId);
-//     console.log
-//     localStorage.setItem('favouriteMeals', JSON.stringify(favouriteMeals));
-//     loadFavouriteMeals();
-// }
-
-window.onload = loadFavouriteMeals;
+//called function on onload to load favourites menus
+window.onload = loadFavouriteMealsList;
